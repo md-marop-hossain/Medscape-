@@ -1,0 +1,22 @@
+.footer-container{
+    border: 1px solid rgba(46, 40, 40, 0.041);
+    padding: 35px;
+    background-color: rgba(0, 0, 0, 0.123);
+    margin-top: 40px;
+}
+.footer-div{
+    text-align: left;
+}
+.follow-us{
+    border-bottom: 2px solid black;
+    text-align: center;
+    width: 40%;
+    margin-bottom: 25px;
+}
+.icon-i{
+    font-size: 40px;
+    margin-left: 10px;
+}
+.iconn{
+    display: flex;
+}

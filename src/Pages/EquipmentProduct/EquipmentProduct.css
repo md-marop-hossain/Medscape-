@@ -1,0 +1,28 @@
+.equipment-product-container{
+    margin-bottom: 25px;
+    width: 21em;
+ 
+    background-color: #9ebdcc38;
+    border-radius: 15px;
+    height: 43em;
+}
+
+.home-comp-details{
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+.home-manufactured-name{
+    margin-bottom: 5px;
+    color: rgb(36, 63, 14);
+}
+.card-div{
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+
+}
+.medicine-p{
+    font-weight: 600;
+    font-size: 15px;
+}
