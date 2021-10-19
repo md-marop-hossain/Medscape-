@@ -4,12 +4,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 const Header = () => {
-
-    const { user, logOut, name, email, passUser, createNewUser } = useAuth();
-    console.log("user: ", user);
-
-    console.log("header passUser: ", passUser.displayName);
-    console.log("header name: ", user?.displayName)
+    const { user, logOut, passUser } = useAuth();
     return (
         <div className="header-conpo">
             <Navbar collapseOnSelect className="navbar-color" expand="lg" bg="dark" variant="dark" fixed="top">
@@ -33,8 +28,6 @@ const Header = () => {
                                 fontWeight: "bold",
                                 color: "blanchedalmond"
                             }} to="/about">About us</NavLink>
-
-
                             {
 
                                 user.email ? <button className="header-logout-btn" onClick={logOut}>LogOut</button> : <NavLink className="nav-bar" activeStyle={{
@@ -42,30 +35,9 @@ const Header = () => {
                                     color: "blanchedalmond"
                                 }} to="/login">LogIn</NavLink>
                             }
-
-
-                            {/* {
-                                user.email && <p className="p">{user?.displayName}</p>
-                            } */}
-
-
                             {
                                 user.email ? <p className="p">{user?.displayName}</p> : <p className="p">{passUser?.displayName}</p>
                             }
-
-
-
-                            {/* {
-                                passUser.email && <p className="p">{passUser?.displayName}</p>
-                            } */}
-
-
-                            {/* {
-                                createNewUser.displayName && <p className="p">{createNewUser.displayName}</p>
-                            } */}
-
-
-
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -73,5 +45,4 @@ const Header = () => {
         </div>
     );
 };
-
 export default Header;

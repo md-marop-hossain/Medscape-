@@ -2,9 +2,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChang
 import { useState, useEffect } from 'react';
 import initializeAuthentication from "../Pages/LogIn/FireBase/firebase.config";
 initializeAuthentication();
-
 const useFirebase = () => {
-
     const [user, setUser] = useState({});
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -13,24 +11,11 @@ const useFirebase = () => {
     const [isLogIn, setIsLogIn] = useState(false);
     const [passUser, setPassUser] = useState({});
     const [createNewUser, setCreateNewUser] = useState({});
-
     const auth = getAuth();
-
-    //----------------------------------------------------
-
-    //For google signIn
     const signInUsingGoogle = () => {
-
         const googleProvider = new GoogleAuthProvider();
-
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user);
-            })
+        return signInWithPopup(auth, googleProvider)
     }
-
-
-    //observe user state change
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
@@ -42,15 +27,10 @@ const useFirebase = () => {
         });
         return () => unsubscribed;
     }, [])
-
-    //logout account..
     const logOut = () => {
         signOut(auth)
             .then(() => { })
-        // setCreateNewUser({});
     }
-
-    //---------------------------------------------------------
     const handleRegistration = e => {
         e.preventDefault();
         if (password.length < 6) {
@@ -58,7 +38,6 @@ const useFirebase = () => {
             return;
         }
         isLogIn ? processLogIn(email, password) : registerNewUser(email, password);
-
     }
     const processLogIn = (email, password) => {
         const auth = getAuth();
@@ -71,7 +50,6 @@ const useFirebase = () => {
             .catch(error => {
                 setError(error.message);
             })
-
     }
     const registerNewUser = (email, password) => {
         const auth = getAuth();
@@ -91,15 +69,12 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, { displayName: name })
             .then(result => { })
     }
-
     const handleResetPassword = () => {
         const auth = getAuth();
         sendPasswordResetEmail(auth, email)
             .then((result) => {
             })
     }
-    //-------------------------------------------
-
     const handleNameChange = (e) => {
         setName(e.target.value);
     }
@@ -112,7 +87,6 @@ const useFirebase = () => {
     const toggleLogIn = (e) => {
         setIsLogIn(e.target.checked);
     }
-
     return {
         user,
         signInUsingGoogle,

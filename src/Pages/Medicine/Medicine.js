@@ -1,9 +1,8 @@
 import React from 'react';
-
 import './Medicine.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-
+import { useHistory } from 'react-router';
 const Medicine = () => {
     const { medicineId } = useParams();
     const [medicineProduct, setMedicineProduct] = useState([]);
@@ -15,13 +14,12 @@ const Medicine = () => {
                 setMedicineProduct(data)
             });
     }, [medicineId]);
-
-
     const md = medicineProduct.find(m => m.id == medicineId);
-
-
     const { name, category, precaution, sideEffect, storage, use, unit, ManufacturedBy, detail } = md || {};
-
+    const history = useHistory();
+    const handleBackHomebutton = () => {
+        history.push('/home');
+    }
     return (
         <div className="medicine-container">
             <h2 className="medci-h">{name}</h2>
@@ -33,6 +31,11 @@ const Medicine = () => {
             <h5 className="m-h">Precaution : {precaution}</h5>
             <h5 className="m-h">SideEffect : {sideEffect}</h5>
             <h5 className="m-h">Storage : {storage}</h5>
+
+            <div className="button-container">
+
+                <button className="btn-medicine" onClick={handleBackHomebutton}>Go Home</button>
+            </div>
 
         </div>
     );

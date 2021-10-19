@@ -3,12 +3,9 @@ import './Footer.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
-
 const Footer = () => {
     return (
         <div className="footer-container">
-
             <Container>
                 <Row>
                     <Col>
@@ -20,11 +17,8 @@ const Footer = () => {
                             <p><i class="fas fa-phone-alt"></i> 1-800-237-APhA (2562)</p>
                             <p><i class="fas fa-envelope"></i> nfocenter@aphanet.org</p>
                         </div>
-
-
                     </Col>
                     <Col>
-
                         <div className="footer-div">
                             <h2>AFFILIATES AND SUBSIDIARIES</h2>
                             <p>APhA Foundation</p>
@@ -35,10 +29,7 @@ const Footer = () => {
                             <p>Pharmacy Technician Certification Board </p>
                             <p> Potomac View Terrace</p>
                         </div>
-
-
                     </Col>
-
                     <Col className="footer-div">
                         <p>Contact Us</p>
                         <p>Corporate Supporters</p>
@@ -51,17 +42,9 @@ const Footer = () => {
                             <p> <i className="icon-i fab fa-instagram-square"></i></p>
                         </div>
                     </Col>
-
                 </Row>
-
             </Container>
-
-
-
-
-
         </div>
     );
 };
-
 export default Footer;

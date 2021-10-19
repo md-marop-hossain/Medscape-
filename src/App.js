@@ -11,10 +11,7 @@ import Equipment from './Pages/Equipment/Equipment';
 import PrivateRoute from './Pages/LogIn/PrivateRoute/PrivateRoute';
 import NotFound from './Pages/NotFound/NotFound';
 import AboutUs from './Pages/AboutUs/AboutUs';
-
-
 function App() {
-
   return (
     <div className="App">
       <AuthProvider>
