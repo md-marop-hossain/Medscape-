@@ -11,7 +11,6 @@ import Equipment from './Pages/Equipment/Equipment';
 import PrivateRoute from './Pages/LogIn/PrivateRoute/PrivateRoute';
 import NotFound from './Pages/NotFound/NotFound';
 import AboutUs from './Pages/AboutUs/AboutUs';
-// import PrivateRoute from './Pages/LogIn/PrivateRoute';
 
 
 function App() {
@@ -21,51 +20,31 @@ function App() {
       <AuthProvider>
         <Router>
           <Header></Header>
-
           <Switch>
-
             <Route exact path="/">
               <Home></Home>
             </Route>
-
             <Route exact path="/home">
               <Home></Home>
             </Route>
-
             <PrivateRoute exact path="/medicine/:medicineId">
               <Medicine></Medicine>
             </PrivateRoute>
-
             <PrivateRoute exact path="/equipment">
               <Equipment></Equipment>
             </PrivateRoute>
-
-
             <Route exact path="/about">
               <AboutUs></AboutUs>
-
             </Route>
-
             <Route exact path="/login">
               <LogIn></LogIn>
             </Route>
-
-
             <Route path="*">
               <NotFound></NotFound>
             </Route>
-
-
-
-
           </Switch>
-
-
-
           <Footer></Footer>
-
         </Router>
-
       </AuthProvider>
     </div>
   );

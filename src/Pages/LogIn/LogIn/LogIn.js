@@ -25,9 +25,6 @@ const LogIn = () => {
 
 
 
-    console.log("name: ", name);
-    console.log("mail: ", email);
-    console.log("pass: ", password);
 
     return (
         <div className="form-container">

@@ -47,34 +47,19 @@ const useFirebase = () => {
     const logOut = () => {
         signOut(auth)
             .then(() => { })
+        // setCreateNewUser({});
     }
 
-
-
-
-
-
-
-
-
     //---------------------------------------------------------
-
-
     const handleRegistration = e => {
         e.preventDefault();
-        // if (password.length < 6) {
-        //     setError('Password Must be at least 6 characters long')
-        //     return;
-        // }
-        // if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-        //     setError("password Must contain 2 upperCase");
-        //     return;
-        // }
-
+        if (password.length < 6) {
+            setError('Password Must be at least 6 characters long')
+            return;
+        }
         isLogIn ? processLogIn(email, password) : registerNewUser(email, password);
 
     }
-
     const processLogIn = (email, password) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
@@ -88,40 +73,24 @@ const useFirebase = () => {
             })
 
     }
-
     const registerNewUser = (email, password) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const newUser = result.user;
                 setCreateNewUser(newUser);
-                console.log(user);
-
-
                 setError('');
-                // verifyEmail();
                 setUserName();
             })
             .catch(error => {
                 setError(error.message);
             })
     }
-
     const setUserName = () => {
         const auth = getAuth();
         updateProfile(auth.currentUser, { displayName: name })
             .then(result => { })
     }
-
-
-    // const verifyEmail = () => {
-    //     const auth = getAuth();
-    //     sendEmailVerification(auth.currentUser)
-    //         .then((result) => {
-
-    //         });
-    // }
-
 
     const handleResetPassword = () => {
         const auth = getAuth();
@@ -129,10 +98,6 @@ const useFirebase = () => {
             .then((result) => {
             })
     }
-
-
-
-
     //-------------------------------------------
 
     const handleNameChange = (e) => {
@@ -148,18 +113,6 @@ const useFirebase = () => {
         setIsLogIn(e.target.checked);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     return {
         user,
         signInUsingGoogle,
@@ -167,8 +120,6 @@ const useFirebase = () => {
         handleRegistration,
         processLogIn,
         registerNewUser,
-        // setUserName,
-        // verifyEmail,
         handleResetPassword,
         handleNameChange,
         handleEmailChange,
@@ -187,9 +138,6 @@ const useFirebase = () => {
         setIsLogIn,
         passUser,
         createNewUser
-
-
     }
 }
-
 export default useFirebase;

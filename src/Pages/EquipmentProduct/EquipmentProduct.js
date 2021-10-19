@@ -21,7 +21,6 @@ const EquipmentProduct = (props) => {
                             <p className="medicine-p">Detail : {detail.slice(0, 50)}</p>
                             <p className="medicine-p">Material : {material}</p>
                             <p className="medicine-p">Use : {use.slice(0, 160)}</p>
-
                             <p className="medicine-p">Price : {price}</p>
                             <p className="medicine-p">Manufactured By : {ManufacturedBy}</p>
                         </div>

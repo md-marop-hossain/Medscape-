@@ -6,10 +6,10 @@ import useAuth from '../../../hooks/useAuth';
 const Header = () => {
 
     const { user, logOut, name, email, passUser, createNewUser } = useAuth();
-    console.log(user);
+    console.log("user: ", user);
 
-    console.log("header passUser: ", passUser);
-
+    console.log("header passUser: ", passUser.displayName);
+    console.log("header name: ", user?.displayName)
     return (
         <div className="header-conpo">
             <Navbar collapseOnSelect className="navbar-color" expand="lg" bg="dark" variant="dark" fixed="top">
@@ -24,10 +24,7 @@ const Header = () => {
                                 fontWeight: "bold",
                                 color: "blanchedalmond"
                             }} to="/home">Home</NavLink>
-                            {/* <NavLink className="nav-bar" activeStyle={{
-                                fontWeight: "bold",
-                                color: "orange"
-                            }} to="/medicines">Medicines</NavLink> */}
+
                             <NavLink className="nav-bar" activeStyle={{
                                 fontWeight: "bold",
                                 color: "blanchedalmond"
@@ -63,9 +60,9 @@ const Header = () => {
                             } */}
 
 
-                            {
-                                createNewUser.email && <p className="p">{createNewUser.displayName}</p>
-                            }
+                            {/* {
+                                createNewUser.displayName && <p className="p">{createNewUser.displayName}</p>
+                            } */}
 
 
 

@@ -4,11 +4,7 @@ import EquipmentProduct from '../EquipmentProduct/EquipmentProduct';
 import { Row, Container, Col } from 'react-bootstrap';
 import './Equipment.css';
 
-
-
 const Equipment = () => {
-
-
     const [equipments, setEquipments] = useState([]);
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/md-marop-hossain/fake-json-data/main/equipment.json')
@@ -16,7 +12,6 @@ const Equipment = () => {
             .then(data => {
                 console.log("eq: ", data);
                 setEquipments(data);
-
             })
 
     }, [])

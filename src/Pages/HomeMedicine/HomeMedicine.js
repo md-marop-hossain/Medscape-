@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const HomeMedicine = (props) => {
     const { ManufacturedBy, category, detail, id, medicineImage, name, precaution, price, sideEffect, storage, type, use, unit } = props.medicine;
-    console.log("from home: ", props.medicine);
+
     return (
         <div>
 
@@ -23,9 +23,6 @@ const HomeMedicine = (props) => {
                             <p className="medicine-p">Price: {price}</p>
                             <p className="medicine-p">Manufactured By: {ManufacturedBy}</p>
                         </div>
-
-
-
                         <Link to={`/medicine/${id}`}>
 
                             <button className="homemedicine-button">Show Details...</button>
