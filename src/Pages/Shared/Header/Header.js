@@ -3,17 +3,18 @@ import './Header.css';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import userEvent from '@testing-library/user-event';
 const Header = () => {
 
-    const { user, logOut, name } = useAuth();
+    const { user, logOut, name, email, passUser, createNewUser } = useAuth();
     console.log(user);
+
+    console.log("header passUser: ", passUser);
 
     return (
         <div className="header-conpo">
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+            <Navbar collapseOnSelect className="navbar-color" expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container>
-                    <Navbar.Brand href="/home"><i class="fas fa-clinic-medical"></i><span className="site-name open-learning-initiative-color">Medicine</span></Navbar.Brand>
+                    <Navbar.Brand href="/home"><i class="fas fa-clinic-medical"></i><span className="site-name open-learning-initiative-color">Medscape</span></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -21,37 +22,52 @@ const Header = () => {
                         <Nav>
                             <NavLink className="nav-bar" activeStyle={{
                                 fontWeight: "bold",
-                                color: "orange"
+                                color: "blanchedalmond"
                             }} to="/home">Home</NavLink>
-                            <NavLink className="nav-bar" activeStyle={{
-                                fontWeight: "bold",
-                                color: "orange"
-                            }} to="/medicines">Medicines</NavLink>
-                            <NavLink className="nav-bar" activeStyle={{
-                                fontWeight: "bold",
-                                color: "orange"
-                            }} to="/equipment">Equipment </NavLink>
-                            <NavLink className="nav-bar" activeStyle={{
-                                fontWeight: "bold",
-                                color: "orange"
-                            }} to="/about">About us</NavLink>
-                            <NavLink className="nav-bar" activeStyle={{
-                                fontWeight: "bold",
-                                color: "orange"
-                            }} to="/login">LogIn</NavLink>
                             {/* <NavLink className="nav-bar" activeStyle={{
                                 fontWeight: "bold",
                                 color: "orange"
-                            }} to="/login">LogIn</NavLink> */}
+                            }} to="/medicines">Medicines</NavLink> */}
+                            <NavLink className="nav-bar" activeStyle={{
+                                fontWeight: "bold",
+                                color: "blanchedalmond"
+                            }} to="/equipment">Equipment </NavLink>
+                            <NavLink className="nav-bar" activeStyle={{
+                                fontWeight: "bold",
+                                color: "blanchedalmond"
+                            }} to="/about">About us</NavLink>
+
+
                             {
 
-                                user.email && <button className="header-logout-btn" onClick={logOut}>LogOut</button>
+                                user.email ? <button className="header-logout-btn" onClick={logOut}>LogOut</button> : <NavLink className="nav-bar" activeStyle={{
+                                    fontWeight: "bold",
+                                    color: "blanchedalmond"
+                                }} to="/login">LogIn</NavLink>
                             }
 
 
-                            {
+                            {/* {
                                 user.email && <p className="p">{user?.displayName}</p>
+                            } */}
+
+
+                            {
+                                user.email ? <p className="p">{user?.displayName}</p> : <p className="p">{passUser?.displayName}</p>
                             }
+
+
+
+                            {/* {
+                                passUser.email && <p className="p">{passUser?.displayName}</p>
+                            } */}
+
+
+                            {
+                                createNewUser.email && <p className="p">{createNewUser.displayName}</p>
+                            }
+
+
 
                         </Nav>
                     </Navbar.Collapse>

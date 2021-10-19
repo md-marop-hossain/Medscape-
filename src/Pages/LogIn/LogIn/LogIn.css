@@ -1,11 +1,11 @@
-.logInForm{
+ .logInForm{
     width: 100%;
     margin: auto;
     margin-top: 35px;
   
 }
 .form-container{
-    background-color: rgba(255, 228, 196, 0.521);
+    background-color: hsl(33deg 27% 86% / 52%);
     width: 40%;
     margin: auto;
     margin-top: 80px;
@@ -38,3 +38,13 @@
 .check-button{
     margin-top: 15px;
 }
+.error-message{
+    margin-left: 20px;
+    color: rgba(255, 0, 0, 0.897);
+    font-weight: 700;
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px;
+} 
+
+

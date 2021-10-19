@@ -28,7 +28,7 @@ const HomeMedicine = (props) => {
 
                         <Link to={`/medicine/${id}`}>
 
-                            <button>Show Details</button>
+                            <button className="homemedicine-button">Show Details...</button>
 
                         </Link>
 

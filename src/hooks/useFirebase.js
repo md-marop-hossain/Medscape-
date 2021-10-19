@@ -11,6 +11,8 @@ const useFirebase = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLogIn, setIsLogIn] = useState(false);
+    const [passUser, setPassUser] = useState({});
+    const [createNewUser, setCreateNewUser] = useState({});
 
     const auth = getAuth();
 
@@ -77,8 +79,8 @@ const useFirebase = () => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const user = result.user;
-                console.log("From proceess: ", user);
+                const passUser = result.user;
+                setPassUser(passUser);
                 setError('');
             })
             .catch(error => {
@@ -91,10 +93,13 @@ const useFirebase = () => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const user = result.user;
+                const newUser = result.user;
+                setCreateNewUser(newUser);
                 console.log(user);
+
+
                 setError('');
-                verifyEmail();
+                // verifyEmail();
                 setUserName();
             })
             .catch(error => {
@@ -109,13 +114,13 @@ const useFirebase = () => {
     }
 
 
-    const verifyEmail = () => {
-        const auth = getAuth();
-        sendEmailVerification(auth.currentUser)
-            .then((result) => {
+    // const verifyEmail = () => {
+    //     const auth = getAuth();
+    //     sendEmailVerification(auth.currentUser)
+    //         .then((result) => {
 
-            });
-    }
+    //         });
+    // }
 
 
     const handleResetPassword = () => {
@@ -162,8 +167,8 @@ const useFirebase = () => {
         handleRegistration,
         processLogIn,
         registerNewUser,
-        setUserName,
-        verifyEmail,
+        // setUserName,
+        // verifyEmail,
         handleResetPassword,
         handleNameChange,
         handleEmailChange,
@@ -179,7 +184,9 @@ const useFirebase = () => {
         error,
         setError,
         isLogIn,
-        setIsLogIn
+        setIsLogIn,
+        passUser,
+        createNewUser
 
 
     }

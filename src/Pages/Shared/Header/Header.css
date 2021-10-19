@@ -25,3 +25,6 @@
     border-radius: 10px;
     margin-right: 5px;
 }
+.navbar-color{
+    background-color: rgba(9, 31, 32, 0.767) !important;
+}
