@@ -1,6 +1,7 @@
 .home-container{
-    width: 99%;
-    margin: auto;
     margin-right: 5px; 
     margin-left:  5px;
+}
+.home-carousel{
+    padding: 10px
 }

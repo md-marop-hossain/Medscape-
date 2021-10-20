@@ -25,12 +25,12 @@ const Medicine = () => {
             <h2 className="medci-h">{name}</h2>
             <h5 className="medci-h">{unit}</h5>
             <h5 className="medci-h"> <i>{category}</i></h5>
-            <h5 className="m-h">Manufactured By : {ManufacturedBy}</h5>
-            <h5 className="m-h">Description : {detail}</h5>
-            <h5 className="m-h">Use : {use}</h5>
-            <h5 className="m-h">Precaution : {precaution}</h5>
-            <h5 className="m-h">SideEffect : {sideEffect}</h5>
-            <h5 className="m-h">Storage : {storage}</h5>
+            <h5 className="m-h">Manufactured By : <span className="medicine-p"><i>{ManufacturedBy}</i></span></h5>
+            <h5 className="m-h">Description : <span className="medicine-p"><i>{detail}</i></span></h5>
+            <h5 className="m-h">Use : <span className="medicine-p"><i>{use}</i></span></h5>
+            <h5 className="m-h">Precaution : <span className="medicine-p"><i>{precaution}</i></span></h5>
+            <h5 className="m-h">SideEffect : <span className="medicine-p"><i>{sideEffect}</i></span></h5>
+            <h5 className="m-h">Storage : <span className="medicine-p"><i>{storage}</i></span></h5>
 
             <div className="button-container">
 

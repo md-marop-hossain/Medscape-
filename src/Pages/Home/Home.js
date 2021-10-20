@@ -7,6 +7,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import image1 from '../../images/med1.jpg';
 import image2 from '../../images/med2.jpg';
 import image3 from '../../images/med3.jpg';
+import TrendingOnMedscape from '../TrendingOnMedscape/TrendingOnMedscape';
 const Home = () => {
     const [medicines, setMedicines] = useState([]);
     useEffect(() => {
@@ -19,9 +20,9 @@ const Home = () => {
     }, [])
     return (
         <>
-            <div className="home-carousel w-50 mx-auto mb-5">
+            <div className="home-carousel  mx-auto mb-5">
                 <Container>
-                    <Carousel>
+                    <Carousel className="carosel-h w-100 mx-auto">
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
@@ -71,6 +72,7 @@ const Home = () => {
                     </Row>
                 </Container>
             </div>
+            <TrendingOnMedscape></TrendingOnMedscape>
         </>
     );
 };
